@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import {Table} from 'react-bootstrap'
 
 function App() {
  //const students = ['Anil','aman','rahul','akash'];
@@ -16,28 +17,34 @@ function App() {
     {name:'aman',email:'aman@gmail',address:'varanasi'},
     {name:'rahul',email:'rahul@gmail',address:'varanasi'},
     {name:'akash',email:'akash@gmail',address:'varanasi'},
+    {name:'vishal',email:'vshal@gmail',address:'varanasi'},
 ]
 
   return (
     <div className="App">
-      <h1>Handel With Array</h1>
-      <table border="1">
+      <h1>List with bootstrap table</h1>
+      <Table striped variant="dark">
+      <tbody>
       <tr>
+<th>SR.No</th>
 <th>Name</th>
 <th>email</th>
 <th>address</th>
 </tr>
+
       {
-      students.map((data)=>
-     
-       <tr>
+      students.map((data,i)=>
+     data.name==='aman'?
+       <tr key={i}>
+        <td>{i+1}</td>
         <td>{data.name}</td>
         <td>{data.email}</td>
         <td>{data.address}</td>
-        </tr>
+        </tr>:null
   )
 }
-</table>
+</tbody>
+</Table>
 {/* {//in  return only map function is used for loop
   for(let i=0; i<students.length; i++)
   {
