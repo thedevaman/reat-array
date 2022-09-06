@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import {Table} from 'react-bootstrap'
+import User from './User';
 
 function App() {
  //const students = ['Anil','aman','rahul','akash'];
@@ -14,10 +15,30 @@ function App() {
   // }
 
   const students = [
-    {name:'aman',email:'aman@gmail',address:'varanasi'},
-    {name:'rahul',email:'rahul@gmail',address:'varanasi'},
-    {name:'akash',email:'akash@gmail',address:'varanasi'},
-    {name:'vishal',email:'vshal@gmail',address:'varanasi'},
+    {name:'aman',email:'aman@gmail',address:[
+      {hn:"10",city:"varanasi",country:"india"},
+      {hn:"10",city:"varanasi",country:"india"},
+      {hn:"10",city:"varanasi",country:"india"},
+      {hn:"10",city:"varanasi",country:"india"},
+  ]},
+    {name:'rahul',email:'rahul@gmail',address:[
+      {hn:"10",city:"varanasi",country:"india"},
+      {hn:"10",city:"varanasi",country:"india"},
+      {hn:"10",city:"varanasi",country:"india"},
+      {hn:"10",city:"varanasi",country:"india"},
+  ]},
+    {name:'akash',email:'akash@gmail',address:[
+      {hn:"10",city:"varanasi",country:"india"},
+      {hn:"10",city:"varanasi",country:"india"},
+      {hn:"10",city:"varanasi",country:"india"},
+      {hn:"10",city:"varanasi",country:"india"},
+  ]},
+    {name:'vishal',email:'vshal@gmail',address:[
+      {hn:"10",city:"varanasi",country:"india"},
+      {hn:"10",city:"varanasi",country:"india"},
+      {hn:"10",city:"varanasi",country:"india"},
+      {hn:"10",city:"varanasi",country:"india"},
+  ]},
 ]
 
   return (
@@ -34,17 +55,36 @@ function App() {
 
       {
       students.map((data,i)=>
-     data.name==='aman'?
+    //  data.name==='aman'?
        <tr key={i}>
         <td>{i+1}</td>
         <td>{data.name}</td>
         <td>{data.email}</td>
-        <td>{data.address}</td>
-        </tr>:null
+        <td>{data.address.map((item)=>
+         <Table striped variant="dark">
+         <tbody>
+          <tr>
+          <td>{item.hn}</td>
+          <td>{item.city}</td>
+          <td>{item.country}</td>
+          </tr>
+          </tbody>
+          </Table>
+        )}</td>
+        </tr>
+        //</tr>:null 
   )
 }
 </tbody>
 </Table>
+<h1>Re Use Component</h1>
+{
+  students.map((item,i)=>
+  <User data={item}/>
+  )
+}
+
+
 {/* {//in  return only map function is used for loop
   for(let i=0; i<students.length; i++)
   {
