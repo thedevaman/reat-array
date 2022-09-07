@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import {Table} from 'react-bootstrap'
 import User from './User';
+import Liftstate from './Liftstate';
 
 function App() {
  //const students = ['Anil','aman','rahul','akash'];
@@ -14,6 +15,9 @@ function App() {
   //   console.warn(students[i])
   // }
 
+function parentsAlert(ac){
+  alert(ac);
+}
   const students = [
     {name:'aman',email:'aman@gmail',address:[
       {hn:"10",city:"varanasi",country:"india"},
@@ -83,6 +87,7 @@ function App() {
   <User data={item}/>
   )
 }
+<Liftstate alert={parentsAlert}/>
 
 
 {/* {//in  return only map function is used for loop
